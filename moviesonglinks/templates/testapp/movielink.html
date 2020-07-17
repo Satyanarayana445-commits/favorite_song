@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{%extends "testapp/index.html"%}
+{%block movie_block%}
+    <div class="container" align="center">
+      <div class="jumbotron">
+      <h1>Your Favorite Song Links</h1>
+      {%if m1%}
+      <table>
+        <thead>
+          <th> Song name</th>
+          <th> Link</th>
+          <th>Delete Song</th>
+        </thead>
+        {%for i in m1%}
+        <tr>
+          <td>{{i.name}}</td>
+          <td><a href="{{i.link}}">{{i.link}}</a></td>
+          <td><a href="/delete/{{i.id}}" class="btn btn-primary btn-lg">Delete Song</td>
+        </tr>
+        {%endfor%}
+      </table>
+      {%else%}
+      <p>No information found</p>
+      {%endif%}
+      <hr>
+      <hr>
+      <a role="submit" href="/index" class="btn btn-primary btn-lg">Back</a>
+    </div>
+    </div>
+{%endblock%}
